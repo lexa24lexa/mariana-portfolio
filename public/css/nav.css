@@ -1,0 +1,43 @@
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-container {
+    height: 40px;
+    position: relative;
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.navbar-menu-main {
+    display: inline-block;
+}
+
+.navbar-item-left,
+.navbar-item-right {
+    margin-right: 20px; /* Adjust as needed for spacing between menu items */
+    text-decoration: none;
+    color: #5A5A5A;
+}
+
+.navbar-end {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    position: absolute;
+    right: 0; /* Align them to the right side */
+    top: 50%; /* Adjust vertical alignment */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+/* images */
+.logo {
+    height: 32px;
+}
+
+.beehance,
+.linkedin {
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 10px; /* Add some margin between the icons */
+}
+

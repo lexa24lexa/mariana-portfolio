@@ -1,0 +1,74 @@
+.post {
+    background-color: #5A5A5A;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    color: white;
+    width: 50%;
+    margin-bottom: 5px;
+    height: auto;
+}
+.post a {
+    color: white;
+    text-decoration: underline;
+}
+
+.button {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.create-button {
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.create-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.save-button, .edit-button, .cancel-button, .delete-button {
+    text-decoration: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 5px;
+    margin-bottom: 1%;
+    font-size: 20px;
+    font-family: "Roboto Light", sans-serif;
+    display: flex;
+    padding: 0 10px;
+    width: 80px;
+    height: 25px;
+}
+
+.save-button {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.cancel-button, .delete-button {
+    background-color: #fc4848;
+}
+
+.button-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
