@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+RUN apt-get update && \
+    apt-get install -y zip unzip git
+
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -17,10 +20,6 @@ RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache \
 WORKDIR /var/www/html
 
 COPY . /var/www/html
-
-RUN ls -la /var/www/html
-
-RUN ls -la /var/www/html/.env
 
 RUN composer install --no-dev --optimize-autoloader -vvv || \
     { echo 'Composer install failed, trying without optimization'; composer install --no-dev -vvv; }
