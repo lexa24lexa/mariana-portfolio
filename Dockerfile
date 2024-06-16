@@ -19,7 +19,9 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer --version
+RUN ls -la /var/www/html
+RUN composer install --no-dev --optimize-autoloader -vvv
 
 EXPOSE 80
 
