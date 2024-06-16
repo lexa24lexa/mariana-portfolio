@@ -21,7 +21,11 @@ COPY . /var/www/html
 
 RUN composer --version
 RUN ls -la /var/www/html
-RUN composer install --no-dev --optimize-autoloader -vvv
+
+RUN ls -la /var/www/html/.env
+
+RUN composer install --no-dev --optimize-autoloader -vvv || \
+    { echo 'Composer install failed, trying without optimization'; composer install --no-dev -vvv; }
 
 EXPOSE 80
 
