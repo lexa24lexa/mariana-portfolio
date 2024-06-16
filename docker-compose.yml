@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
     apache:
         build:
@@ -18,7 +20,7 @@ services:
         restart: always
         environment:
             MYSQL_DATABASE: example-app
-            MYSQL_USERNAME: root
+            MYSQL_USER: root
             MYSQL_PASSWORD: password
             MYSQL_ROOT_PASSWORD: root_password
         ports:
@@ -44,11 +46,8 @@ services:
             - laravel
         volumes:
             - .:/var/app
-        ports:
-            - 5173:5173
         working_dir: /var/app/
-        command: npm install
-        entrypoint: npm run dev
+        command: npm install && npm run dev
 
     composer:
         image: composer:latest
@@ -58,7 +57,7 @@ services:
         volumes:
             - .:/var/app
         working_dir: /var/app
-        entrypoint: composer install
+        entrypoint: composer install --ignore-platform-reqs --no-scripts
 
 networks:
     laravel:
