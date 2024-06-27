@@ -2,24 +2,29 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
- */
 class PostFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Post::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'title' => $this->faker->word(),
-            'date' => $this->faker->dateTimeBetween('01-06-2024'),
-            'description' => $this->faker->paragraph(),
+            'title' => $this->faker->word,
+            'date' => $this->faker->dateTimeBetween('2024-06-01', '2024-06-30')->format('Y-m-d'),
+            'description' => $this->faker->paragraph,
         ];
     }
 }

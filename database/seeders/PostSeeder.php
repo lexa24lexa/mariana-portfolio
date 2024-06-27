@@ -4,24 +4,27 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
+/**
+ * @property $faker
+ */
 class PostSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run()
     {
-        $faker = Faker::create();
+        // Clear existing records to start fresh (optional)
+        DB::table('posts')->truncate();
 
-        // Example seeding logic
+        // Generate new data using Laravel's Faker
         for ($i = 0; $i < 10; $i++) {
             Post::create([
-                'title' => $faker->sentence,
-                'date' => $faker->date,
-                'content' => $faker->paragraph,
+                'title' => $this->faker->sentence,
+                'date' => $this->faker->dateTimeBetween('2024-06-01', '2024-06-30')->format('Y-m-d'),
+                'content' => $this->faker->paragraph,
             ]);
         }
+
+        Post::factory()->count(4)->create();
     }
 }
