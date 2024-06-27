@@ -9,8 +9,12 @@
                     <p>Description: {{$post->description}}</p>
                 </div>
                 <div class="button-container">
-                    <a href="{{ route('posts.edit', $post) }}" class="edit-button">Edit</a>
-                    <a href="{{ route('posts.delete', $post) }}" class="delete-button">Delete</a>
+                    @can('edit-post')
+                        <a href="{{ route('posts.edit', $post) }}" class="edit-button">Edit</a>
+                    @endcan
+                    @can('delete-post')
+                        <a href="{{ route('posts.delete', $post) }}" class="delete-button">Delete</a>
+                    @endcan
                     <a href="{{ route('work') }}" class="cancel-button">Cancel</a>
                 </div>
             </div>

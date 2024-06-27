@@ -1,0 +1,18 @@
+form {
+    width: auto;
+    padding-left: 600px;
+    padding-top: 250px;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+.button-container {
+    padding-right: 625px;
+}
+
+.login-button {
+    background-color: rgba(124, 126, 124, 0.87);
+}
