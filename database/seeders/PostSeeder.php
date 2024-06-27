@@ -3,16 +3,25 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        Post::factory()->count(4)->create();
+        $faker = Faker::create();
+
+        // Example seeding logic
+        for ($i = 0; $i < 10; $i++) {
+            Post::create([
+                'title' => $faker->sentence,
+                'date' => $faker->date,
+                'content' => $faker->paragraph,
+            ]);
+        }
     }
 }
