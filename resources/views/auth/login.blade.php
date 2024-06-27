@@ -1,6 +1,4 @@
 <x-layout.main>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/breeze.css') }}">
-
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
 
