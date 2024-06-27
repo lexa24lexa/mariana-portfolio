@@ -18,6 +18,33 @@
                 <a href="{{ route('contacts') }}"
                    class="navbar-item-right {{ Request::route()->getName() === 'contacts' ? 'is-active' : '' }}">Contacts
                 </a>
+                @if(!Auth::check())
+                    <a href="{{ route("register") }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'register' ? "is-active" : "" }}">Register</a>
+                @endif
+                {{-- button for profile page --}}
+                @auth
+                    <a href="{{ route('profile.edit') }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'edit' ? 'is-active' : '' }}">
+                        Profile
+                    </a>
+                @endauth
+                {{-- Button for login/logout page --}}
+                @if(Auth::check())
+                    <a href="{{ route('logout') }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'logout' ? 'is-active' : '' }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('login') }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'login' ? 'is-active' : '' }}">
+                        Login
+                    </a>
+                @endif
                 <a href="https://www.behance.net/marianamartinez6"
                    class="navbar-item-left" target="_blank">
                     <img src="{{ asset('image/Beehance icon.png') }}" class="beehance" alt="Behance logo">

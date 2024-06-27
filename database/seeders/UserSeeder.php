@@ -18,8 +18,6 @@ class UserSeeder extends Seeder
             'email' => 'creator@hz.nl',
             'password' => bcrypt('1234'),
             'remember_token' => 'ADsdkfkAismf',
-        ]);
-
-        $creator->assignRole('web', 'web');
+        ])->assignRole('creator');
     }
 }

@@ -10,9 +10,11 @@
                         <p>Description: {{ $post->description }}</p>
                     </div>
                 @endforeach
-                <div class="create-button">
-                    <a href="{{ route('posts.create') }}" class="button">Create</a>
-                </div>
+                @can('create-post')
+                    <div class="create-button">
+                        <a href="{{ route('posts.create') }}" class="button">Create</a>
+                    </div>
+                @endcan
             </div>
         </section>
     </div>

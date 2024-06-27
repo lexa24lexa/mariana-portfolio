@@ -114,7 +114,7 @@
 .save-button,
 .edit-button,
 .cancel-button,
-.delete-button {
+.delete-button, .login-button {
     text-decoration: none;
     border: none;
     color: #000000;
