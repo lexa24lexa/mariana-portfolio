@@ -7,7 +7,7 @@
         <p>Are you sure you want to delete this post?</p>
         <div class="button-container">
             <button type="submit" class="delete-button">Delete</button>
-            <a href="{{ route('welcome') }}" class="cancel-button">Cancel</a>
+            <a href="{{ route('work') }}" class="cancel-button">Cancel</a>
         </div>
     </form>
 </x-layout.main>

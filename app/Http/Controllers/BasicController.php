@@ -10,68 +10,27 @@ class BasicController extends Controller
     /* welcome function */
     public function welcome()
     {
-        return view("welcome", [
-            'posts' => Post::all()
+        return view("welcome");
+    }
+
+    /* work function */
+    public function work()
+    {
+        $posts = Post::all();
+        return view("work", [
+            'posts' => $posts,
         ]);
     }
 
-    public function create()
+    /* research function */
+    public function research()
     {
-        $post = new Post();
-
-        return view('posts.create', compact('post'));
+        return view("research");
     }
 
-    public function store(Request $request)
+    /* contact function */
+    public function contacts()
     {
-        $validated = $request->validate([
-            'title' => 'required',
-            'date' => 'required',
-            'description' => 'required',
-        ]);
-
-        $post = Post::create($validated);
-        $post->save();
-
-        return redirect('/welcome/');
-    }
-
-    public function show(Post $post)
-    {
-        return view('posts.show', [
-            'post' => $post,
-        ]);
-    }
-
-    public function edit(Post $post)
-    {
-        return view('posts.edit', [
-            'post' => $post,
-        ]);
-    }
-
-    public function update(Request $request, Post $post)
-    {
-        $validated = $request->validate([
-            'title' => 'required',
-            'date' => 'required',
-            'description' => 'required',
-        ]);
-        $post->update($validated);
-
-        return redirect('/welcome');
-    }
-
-    public function delete(Post $post)
-    {
-        return view('posts.delete', [
-            'post' => $post,
-        ]);
-    }
-
-    public function destroy(Post $post)
-    {
-        $post->delete();
-        return redirect('/welcome');
+        return view("contacts");
     }
 }
