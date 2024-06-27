@@ -18,29 +18,21 @@
                 <a href="{{ route('contacts') }}"
                    class="navbar-item-right {{ Request::route()->getName() === 'contacts' ? 'is-active' : '' }}">Contacts
                 </a>
-                <a href="https://www.behance.net/marianamartinez6"
-                   class="navbar-item-left" target="_blank">
-                    <img src="{{ asset('image/Beehance icon.png') }}" class="beehance" alt="Behance logo">
-                </a>
-                <a href="https://mx.linkedin.com/in/margisela"
-                   class="navbar-item-left" target="_blank">
-                    <img src="{{ asset('image/Linkedin icon.png') }}" class="linkedin" alt="LinkedIn logo">
-                </a>
                 @if(!Auth::check())
                     <a href="{{ route("register") }}"
-                       class="nav-buttons {{ Request::route()->getName() === 'register' ? "is-active" : "" }}">Register</a>
+                       class="navbar-item-left {{ Request::route()->getName() === 'register' ? "is-active" : "" }}">Register</a>
                 @endif
                 {{-- button for profile page --}}
                 @auth
-                    <a href="{{ route('edit') }}"
-                       class="nav-buttons {{ Request::route()->getName() === 'edit' ? 'is-active' : '' }}">
+                    <a href="{{ route('profile.edit') }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'edit' ? 'is-active' : '' }}">
                         Profile
                     </a>
                 @endauth
                 {{-- Button for login/logout page --}}
                 @if(Auth::check())
                     <a href="{{ route('logout') }}"
-                       class="nav-buttons {{ Request::route()->getName() === 'logout' ? 'is-active' : '' }}"
+                       class="navbar-item-left {{ Request::route()->getName() === 'logout' ? 'is-active' : '' }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
@@ -49,10 +41,18 @@
                     </form>
                 @else
                     <a href="{{ route('login') }}"
-                       class="nav-buttons {{ Request::route()->getName() === 'login' ? 'is-active' : '' }}">
+                       class="navbar-item-left {{ Request::route()->getName() === 'login' ? 'is-active' : '' }}">
                         Login
                     </a>
                 @endif
+                <a href="https://www.behance.net/marianamartinez6"
+                   class="navbar-item-left" target="_blank">
+                    <img src="{{ asset('image/Beehance icon.png') }}" class="beehance" alt="Behance logo">
+                </a>
+                <a href="https://mx.linkedin.com/in/margisela"
+                   class="navbar-item-left" target="_blank">
+                    <img src="{{ asset('image/Linkedin icon.png') }}" class="linkedin" alt="LinkedIn logo">
+                </a>
             </div>
         </div>
     </div>
