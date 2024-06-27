@@ -7,10 +7,10 @@
     <title>Mariana E-Portfolio</title>
 
     {{-- Compiled assets --}}
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/nav.css" rel="stylesheet">
-    <link href="/css/work.css" rel="stylesheet">
-    <link href="/css/breeze.css" rel="stylesheet">
+    <link href="/public/css/main.css" rel="stylesheet">
+    <link href="/public/css/nav.css" rel="stylesheet">
+    <link href="/public/css/work.css" rel="stylesheet">
+    <link href="/public/css/breeze.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
