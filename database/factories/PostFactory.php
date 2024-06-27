@@ -22,7 +22,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
+            'title' => $this->faker->sentence,
             'date' => $this->faker->dateTimeBetween('2024-06-01', '2024-06-30')->format('Y-m-d'),
             'description' => $this->faker->paragraph,
         ];
