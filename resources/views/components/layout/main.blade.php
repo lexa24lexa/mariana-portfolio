@@ -7,10 +7,12 @@
     <title>Mariana E-Portfolio</title>
 
     {{-- Compiled assets --}}
-    <link href="/public/css/main.css" rel="stylesheet">
-    <link href="/public/css/nav.css" rel="stylesheet">
-    <link href="/public/css/work.css" rel="stylesheet">
-    <link href="/public/css/breeze.css" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/button.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/nav.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/work.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/breeze.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

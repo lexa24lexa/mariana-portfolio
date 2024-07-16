@@ -45,6 +45,7 @@ h2 {
 
 .reveal{
     position: relative;
+    text-align: center;
     transform: translateY(150px);
     opacity: 0;
     transition: 1s all ease;

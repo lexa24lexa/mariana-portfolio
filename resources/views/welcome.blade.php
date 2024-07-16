@@ -1,6 +1,6 @@
 <x-layout.main>
-    <div class="main-container">
-        <section class="main-text">
+    <div class="content-div">
+        <section>
             <h1 class="h1">Delft, <strong class="h1-2"> Netherlands </strong></h1>
             <h2>DISCOVER</h2>
             <div class="scroll-indicator">
@@ -8,7 +8,7 @@
             </div>
         </section>
         <section>
-            <div class="container reveal">
+            <div class="reveal">
                 <h3>Caption</h3>
                 <div class="text-container">
                     <div class="text-box">

@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/work.css') }}">
     <div class="container">
         <h2 class="title">Edit {{ $post->title }}</h2>
-        <form action="{{ route('posts.update', $post) }}" method="POST">
+        <form action="{{ route('posts.update', $post) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <section class="posts" style="width: 500px">
@@ -43,6 +43,25 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="field">
+                            <label for="image" class="label">Image</label>
+                            <div class="control">
+                                <input type="file" name="image" id="image"
+                                       class="input @error('image') is-danger @enderror">
+                                @error('image')
+                                <p class="help is-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @if ($post->image_url)
+                            <div class="field">
+                                <label class="label">Current Image</label>
+                                <img src="{{ asset('storage/' . $post->image_url) }}" alt="Current Image"
+                                     style="max-width: 100%; height: auto;">
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="button-container">

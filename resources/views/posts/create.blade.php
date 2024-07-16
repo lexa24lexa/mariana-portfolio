@@ -1,85 +1,108 @@
 <x-layout.main>
-    <div class="box">
-        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" id="postForm">
-            @csrf
-            <h1 class="title is-4">Create a new post</h1>
-            <br>
-            <h2 class="subtitle is-6 is-italic">
-                Please fill out all the form fields and click 'Save'
-            </h2>
+    <div class="container-create">
+        <div class="box">
+            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" id="postForm">
+                @csrf
+                <h1>Create a new post</h1>
+                <br>
+                <h2>Please fill out all the form fields and click 'Save'.</h2>
 
-            {{-- Title Field --}}
-            <div class="field">
-                <label for="title" class="label">Title</label>
-                <div class="control has-icons-right">
-                    <input type="text" name="title" id="title" class="input @error('title') is-danger @enderror" value="{{ old('title') }}" autocomplete="title" autofocus>
-                    <p class="help is-info" id="titleHint" style="display: none; color: blue;">Please enter the title of your post. Max 50 characters, no special characters.</p>
-                    <p class="help is-danger" id="titleHelp">{{ $errors->first('title') }}</p>
-                    <p class="help is-success" id="titleSuccess" style="display: none;">Field filled correctly.</p>
+                {{-- Title Field --}}
+                <div class="field">
+                    <label for="title" class="label">Title</label>
+                    <div class="control has-icons-right">
+                        <input type="text" name="title" id="title" class="input @error('title') is-danger @enderror"
+                               value="{{ old('title') }}" autocomplete="title" autofocus>
+                        <p class="help is-info" id="titleHint" style="display: none; color: blue;">Please enter the
+                            title of
+                            your post. Max 50 characters, no special characters.</p>
+                        <p class="help is-danger" id="titleHelp">{{ $errors->first('title') }}</p>
+                        <p class="help is-success" id="titleSuccess" style="display: none;">Field filled correctly.</p>
+                    </div>
                 </div>
-            </div>
 
-            {{-- Date Field --}}
-            <div class="field">
-                <label for="date" class="label">Happened at:</label>
-                <div class="control has-icons-right">
-                    <input type="text" name="date" id="date" class="input @error('date') is-danger @enderror" value="{{ old('date') }}" autocomplete="date" placeholder="dd/mm/yyyy">
-                    <p class="help is-info" id="dateHint" style="display: none; color: blue;">Please enter the date of the event in the format dd/mm/yyyy.</p>
-                    <p class="help is-danger" id="dateHelp">{{ $errors->first('date') }}</p>
-                    <p class="help is-success" id="dateSuccess" style="display: none;">Field filled correctly.</p>
+                {{-- Date Field --}}
+                <div class="field">
+                    <label for="date" class="label">Happened at:</label>
+                    <div class="control has-icons-right">
+                        <input type="date" name="date" id="date" class="input @error('date') is-danger @enderror"
+                               value="{{ old('date') }}" autocomplete="date" placeholder="dd/mm/yyyy">
+                        <p class="help is-info" id="dateHint" style="display: none; color: blue;">Please enter the date
+                            of
+                            the event in the format dd/mm/yyyy.</p>
+                        <p class="help is-danger" id="dateHelp">{{ $errors->first('date') }}</p>
+                        <p class="help is-success" id="dateSuccess" style="display: none;">Field filled correctly.</p>
+                    </div>
                 </div>
-            </div>
 
-            {{-- Description Field --}}
-            <div class="field">
-                <label for="description" class="label">Description</label>
-                <div class="control has-icons-right">
-                    <textarea name="description" id="description" class="textarea @error('description') is-danger @enderror" autocomplete="description" autofocus>{{ old('description') }}</textarea>
-                    <p class="help is-info" id="descriptionHint" style="display: none; color: blue;">Please enter the description of your post.</p>
-                    <p class="help is-danger" id="descriptionHelp">{{ $errors->first('description') }}</p>
-                    <p class="help is-success" id="descriptionSuccess" style="display: none;">Field filled correctly.</p>
+                {{-- Description Field --}}
+                <div class="field">
+                    <label for="description" class="label">Description</label>
+                    <div class="control has-icons-right">
+                    <textarea name="description" id="description"
+                              class="textarea @error('description') is-danger @enderror" autocomplete="description"
+                              autofocus>{{ old('description') }}</textarea>
+                        <p class="help is-info" id="descriptionHint" style="display: none; color: blue;">Please enter
+                            the
+                            description of your post.</p>
+                        <p class="help is-danger" id="descriptionHelp">{{ $errors->first('description') }}</p>
+                        <p class="help is-success" id="descriptionSuccess" style="display: none;">Field filled
+                            correctly.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field is-grouped button-container">
-                <div class="control">
-                    <button type="submit" class="button is-primary save-button">Save</button>
+                {{-- Image Field --}}
+                <div class="field">
+                    <label for="image" class="label">Image</label>
+                    <div class="control has-icons-right">
+                        <input type="file" name="image" id="image" class="input @error('image') is-danger @enderror">
+                        <p class="help is-info" id="imageHint" style="display: none; color: blue;">Please upload an
+                            image
+                            for your post.</p>
+                        <p class="help is-danger" id="imageHelp">{{ $errors->first('image') }}</p>
+                        <p class="help is-success" id="imageSuccess" style="display: none;">Field filled correctly.</p>
+                    </div>
                 </div>
-                <div class="control">
-                    <a href="{{ route('work') }}" class="button is-light cancel-button">Cancel</a>
+
+                <div class="field is-grouped button-container">
+                    <div class="control">
+                        <button type="submit" class="button is-primary save-button">Save</button>
+                    </div>
+                    <div class="control">
+                        <a href="{{ route('work') }}" class="button is-light cancel-button">Cancel</a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <script>
-        // Show hints when input fields are focused
-        document.getElementById('title').addEventListener('focus', function() {
+        document.getElementById('title').addEventListener('focus', function () {
             document.getElementById('titleHint').style.display = 'block';
         });
 
-        document.getElementById('title').addEventListener('blur', function() {
+        document.getElementById('title').addEventListener('blur', function () {
             document.getElementById('titleHint').style.display = 'none';
         });
 
-        document.getElementById('date').addEventListener('focus', function() {
+        document.getElementById('date').addEventListener('focus', function () {
             document.getElementById('dateHint').style.display = 'block';
         });
 
-        document.getElementById('date').addEventListener('blur', function() {
+        document.getElementById('date').addEventListener('blur', function () {
             document.getElementById('dateHint').style.display = 'none';
         });
 
-        document.getElementById('description').addEventListener('focus', function() {
+        document.getElementById('description').addEventListener('focus', function () {
             document.getElementById('descriptionHint').style.display = 'block';
         });
 
-        document.getElementById('description').addEventListener('blur', function() {
+        document.getElementById('description').addEventListener('blur', function () {
             document.getElementById('descriptionHint').style.display = 'none';
         });
 
         // Validate form on submit
-        document.getElementById('postForm').addEventListener('submit', function(event) {
+        document.getElementById('postForm').addEventListener('submit', function (event) {
             let valid = true;
 
             // Clear previous error messages
@@ -103,7 +126,7 @@
 
             // Validate Date
             let date = document.getElementById('date').value;
-            let dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+            let dateRegex = /^\d{4}-\d{2}-\d{2}$/;
             if (!dateRegex.test(date)) {
                 valid = false;
                 document.getElementById('dateHelp').textContent = 'Date must be in the format dd/mm/yyyy.';
@@ -128,7 +151,7 @@
         });
 
         // Validate individual fields on input
-        document.getElementById('title').addEventListener('input', function() {
+        document.getElementById('title').addEventListener('input', function () {
             let title = this.value;
             let titleRegex = /^[a-zA-Z0-9 ]{1,50}$/;
             if (titleRegex.test(title)) {
@@ -139,7 +162,7 @@
             }
         });
 
-        document.getElementById('date').addEventListener('input', function() {
+        document.getElementById('date').addEventListener('input', function () {
             let date = this.value;
             let dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
             if (dateRegex.test(date)) {
@@ -150,7 +173,7 @@
             }
         });
 
-        document.getElementById('description').addEventListener('input', function() {
+        document.getElementById('description').addEventListener('input', function () {
             let description = this.value;
             if (description.trim() !== '') {
                 document.getElementById('descriptionHelp').textContent = '';

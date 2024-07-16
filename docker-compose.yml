@@ -26,17 +26,6 @@ services:
         networks:
             - laravel
 
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        restart: always
-        environment:
-            PMA_HOST: mysql
-            PMA_PORT: 3306
-        ports:
-            - "8081:80"
-        networks:
-            - laravel
-
     node:
         image: node:latest
         restart: always

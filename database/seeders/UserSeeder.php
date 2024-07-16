@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         $creator = User::create([
             'name' => 'creator',
-            'email' => 'creator@hz.nl',
+            'email' => 'mariana@gmail.com',
             'password' => bcrypt('olaola24!'),
             'remember_token' => 'ADsdkfkAismf',
         ])->assignRole('creator');
